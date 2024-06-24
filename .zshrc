@@ -52,17 +52,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 
-
-
 # lazydocker
 export PATH="$HOME/.local/bin:$PATH"
 
 
-# zellij
-#eval "$(zellij setup --generate-auto-start zsh)"
-
-# Setup fzf key bindings and fuzzy completion
-source <(fzf --zsh)
 
 # -- Use fd instead of fzf --
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
@@ -144,5 +137,8 @@ eval $(thefuck --alias fk)
 # Zoxide (better cd)
 eval "$(zoxide init --cmd cd zsh)"
 
+
+# Setup fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
