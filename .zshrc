@@ -1,8 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 
+#source $ZSH/oh-my-zsh.sh
 
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
 
 
@@ -29,8 +29,8 @@ plugins=(git
   zsh-bat
 	)
 
-source $ZSH/oh-my-zsh.sh
 
+source $ZSH/oh-my-zsh.sh
 
 # Automatically start TMUX, if it's not set
 if [[ -z "$TMUX" ]]; then
@@ -62,7 +62,7 @@ export PATH="$HOME/.local/bin:$PATH"
 #eval "$(zellij setup --generate-auto-start zsh)"
 
 # Setup fzf key bindings and fuzzy completion
-eval "$(fzf --zsh)"
+source <(fzf --zsh)
 
 # -- Use fd instead of fzf --
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
@@ -145,3 +145,4 @@ eval $(thefuck --alias fk)
 eval "$(zoxide init --cmd cd zsh)"
 
 
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
