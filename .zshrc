@@ -86,8 +86,9 @@ alias air='$(go env GOPATH)/bin/air'
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias reload-zsh="source ~/.zshrc"
 alias edit-zsh="nvim ~/.zshrc"
-alias gcb='git branch | fzf | cut -c 3- | xargs git checkout'
-
+alias gcb="git branch | fzf | cut -c 3- | xargs git checkout"
+alias v="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
+alias cobra-cli="~/go/bin/cobra-cli"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
@@ -154,3 +155,10 @@ eval "$(zoxide init --cmd cd zsh)"
 source <(fzf --zsh)
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+
+# fnm
+FNM_PATH="/home/werewolf/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/werewolf/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
